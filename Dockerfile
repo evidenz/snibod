@@ -16,7 +16,7 @@ RUN apt install -y tigervnc-standalone-server fluxbox xterm git net-tools python
 	&& sed -i 's/geteuid/getppid/' /usr/bin/vlc \
 	&& add-apt-repository ppa:obsproject/obs-studio \
 	&& git clone --branch v1.3.0 --single-branch https://github.com/novnc/noVNC.git /opt/noVNC \
-	&& git clone --branch v0.8.0 --single-branch https://github.com/novnc/websockify.git /opt/noVNC/utils/websockify \
+	&& git clone --branch v0.10.0 --single-branch https://github.com/novnc/websockify.git /opt/noVNC/utils/websockify \
 	&& ln -s /opt/noVNC/vnc.html /opt/noVNC/index.html \
 # Because Python2 has been decommissioned and some unterlying scripts require /usr/bin/python we will link Python3 there
 	&& ln -sf /usr/bin/python3 /usr/bin/python \
