@@ -18,6 +18,8 @@ RUN apt install -y tigervnc-standalone-server fluxbox xterm git net-tools python
 	&& git clone --branch v1.3.0 --single-branch https://github.com/novnc/noVNC.git /opt/noVNC \
 	&& git clone --branch v0.8.0 --single-branch https://github.com/novnc/websockify.git /opt/noVNC/utils/websockify \
 	&& ln -s /opt/noVNC/vnc.html /opt/noVNC/index.html \
+# Because Python2 has been decommissioned and some unterlying scripts require /usr/bin/python we will link Python3 there
+	&& ln -sf /usr/bin/python3 /usr/bin/python \
 # Copy various files to their respective places
 	&& wget -q -O /opt/container_startup.sh https://raw.githubusercontent.com/evidenz/snibod/master/container_startup.sh \
 	&& wget -q -O /opt/x11vnc_entrypoint.sh https://raw.githubusercontent.com/evidenz/snibod/master/x11vnc_entrypoint.sh \
